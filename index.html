@@ -5,28 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SEELMTA - Bejelentkezés</title>
     <style>
+        /* Új, lila-fekete színátmenetes háttér (CSS-sel, nem AI-val) */
         body {
             margin: 0;
             padding: 0;
-            background-color: #121212; /* Sötét háttér */
+            background: linear-gradient(135deg, #000000 0%, #1a0033 50%, #330066 100%); /* Lila és fekete átmenet */
             color: #ffffff;
             font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            background-attachment: fixed; /* Hogy ne ismétlődjön */
         }
         .login-card {
-            background-color: #1e1e1e;
+            background-color: rgba(30, 30, 30, 0.85); /* Enyhén átlátszó kártya */
             padding: 40px;
             border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.7);
             width: 300px;
             text-align: center;
+            border: 1px solid #444;
         }
         .login-card h2 {
-            margin-bottom: 20px;
+            margin: 0;
             color: #ff3333;
+        }
+        .logo-container {
+            margin-bottom: 20px;
+        }
+        .logo-container img {
+            width: 80px;
+            height: auto;
+            display: block;
+            margin: 0 auto 10px auto;
         }
         .input-group {
             margin-bottom: 15px;
@@ -36,12 +48,12 @@
             display: block;
             margin-bottom: 5px;
             font-size: 14px;
-            color: #bbb;
+            color: #ccc;
         }
         .input-group input {
             width: 100%;
             padding: 10px;
-            border: 1px solid #333;
+            border: 1px solid #555;
             background-color: #2c2c2c;
             color: #fff;
             border-radius: 5px;
@@ -66,8 +78,13 @@
 <body>
 
     <div class="login-card">
-        <!-- Itt a SEELMTA Logo helye -->
-        <h2>SEELMTA</h2>
+        <!-- Logó és alatta a SEELMTA név -->
+        <div class="logo-container">
+            <!-- Győződj meg róla, hogy a képfájlod neve "logo.png" és a mappában van! -->
+            <img src="logo.png" alt="SEELMTA Logo">
+            <h2>SEELMTA</h2>
+        </div>
+
         <form id="loginForm" onsubmit="handleLogin(event)">
             <div class="input-group">
                 <label for="username">Felhasználónév</label>
@@ -83,13 +100,9 @@
 
     <script>
         function handleLogin(event) {
-            event.preventDefault(); // Megakadályozza az alapértelmezett oldalfrissítést
-            
-            // Itt elmenthetjük a nevet a böngészőbe, hogy a dashboard is tudja
+            event.preventDefault();
             const username = document.getElementById('username').value;
             localStorage.setItem('seelmta_user', username);
-
-            // Átirányítás a dashboardra
             window.location.href = 'dashboard.html';
         }
     </script>
