@@ -5,27 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SEELMTA - Bejelentkezés</title>
     <style>
-        /* Új, lila-fekete színátmenetes háttér (CSS-sel, nem AI-val) */
         body {
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #000000 0%, #1a0033 50%, #330066 100%); /* Lila és fekete átmenet */
+            /* Háttérkép beállítása */
+            background-image: url('hatter.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            
             color: #ffffff;
             font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-attachment: fixed; /* Hogy ne ismétlődjön */
         }
         .login-card {
-            background-color: rgba(30, 30, 30, 0.85); /* Enyhén átlátszó kártya */
+            background-color: rgba(18, 18, 18, 0.85); /* Enyhén sötét, áttetsző doboz, hogy látszódjon a háttér */
             padding: 40px;
             border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.7);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.8);
             width: 300px;
             text-align: center;
-            border: 1px solid #444;
+            border: 1px solid #333;
         }
         .login-card h2 {
             margin: 0;
@@ -53,7 +57,7 @@
         .input-group input {
             width: 100%;
             padding: 10px;
-            border: 1px solid #555;
+            border: 1px solid #444;
             background-color: #2c2c2c;
             color: #fff;
             border-radius: 5px;
@@ -80,7 +84,6 @@
     <div class="login-card">
         <!-- Logó és alatta a SEELMTA név -->
         <div class="logo-container">
-            <!-- Győződj meg róla, hogy a képfájlod neve "logo.png" és a mappában van! -->
             <img src="logo.png" alt="SEELMTA Logo">
             <h2>SEELMTA</h2>
         </div>
