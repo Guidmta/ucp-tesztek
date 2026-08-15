@@ -8,7 +8,7 @@
         body {
             margin: 0;
             padding: 0;
-            /* Elegáns sötét lila színátmenetes háttér */
+            /* Sötét lila színátmenetes háttér */
             background: linear-gradient(135deg, #1a0033 0%, #0d001a 100%);
             background-attachment: fixed;
             
@@ -98,22 +98,36 @@
     </div>
 
     <script>
-        function handleLogin(event) {
+        async function handleLogin(event) {
             event.preventDefault();
             
             const usernameInput = document.getElementById('username').value;
             const passwordInput = document.getElementById('password').value;
 
-            // --- ITT A TE ADATAID ---
-            const sajatFelhasznalo = "Lillykia123";
-            const sajatJelszo = "itt_a_sajat_jelszavad"; // Írd át a jelszavadra!
-            // ------------------------
+            try {
+                // Ide majd beírjuk a szervered/PHP szkripted címét, ami lekérdezi az adatbázist az 5000 játékosnak:
+                /* 
+                const response = await fetch('https://a-szerverem.hu/api/login.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username: usernameInput, password: passwordInput })
+                });
+                const data = await response.json();
 
-            if (usernameInput === sajatFelhasznalo && passwordInput === sajatJelszo) {
-                localStorage.setItem('seelmta_user', usernameInput);
-                window.location.href = 'dashboard.html';
-            } else {
-                alert('Hibás felhasználónév vagy jelszó!');
+                if (data.success) {
+                    localStorage.setItem('seelmta_user', usernameInput);
+                    window.location.href = 'dashboard.html';
+                } else {
+                    alert('Hibás felhasználónév vagy jelszó!');
+                }
+                */
+
+                // Jelenlegi állapot: jelzi, hogy a rendszer készen áll a backend csatlakoztatására
+                alert('A rendszer készen áll a backend csatlakoztatására! (Még nincs szerver oldal az adatbázishoz).');
+
+            } catch (error) {
+                console.error('Hiba történt:', error);
+                alert('Nem sikerült kapcsolódni a szerverhez!');
             }
         }
     </script>
