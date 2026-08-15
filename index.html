@@ -8,11 +8,8 @@
         body {
             margin: 0;
             padding: 0;
-            /* Háttérkép beállítása */
-            background-image: url('hatter.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            /* Elegáns sötét lila színátmenetes háttér */
+            background: linear-gradient(135deg, #1a0033 0%, #0d001a 100%);
             background-attachment: fixed;
             
             color: #ffffff;
@@ -23,7 +20,7 @@
             height: 100vh;
         }
         .login-card {
-            background-color: rgba(18, 18, 18, 0.85); /* Enyhén sötét, áttetsző doboz, hogy látszódjon a háttér */
+            background-color: rgba(18, 18, 18, 0.85);
             padding: 40px;
             border-radius: 10px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.8);
@@ -82,7 +79,6 @@
 <body>
 
     <div class="login-card">
-        <!-- Logó és alatta a SEELMTA név -->
         <div class="logo-container">
             <img src="logo.png" alt="SEELMTA Logo">
             <h2>SEELMTA</h2>
@@ -104,9 +100,21 @@
     <script>
         function handleLogin(event) {
             event.preventDefault();
-            const username = document.getElementById('username').value;
-            localStorage.setItem('seelmta_user', username);
-            window.location.href = 'dashboard.html';
+            
+            const usernameInput = document.getElementById('username').value;
+            const passwordInput = document.getElementById('password').value;
+
+            // --- ITT A TE ADATAID ---
+            const sajatFelhasznalo = "Lillykia123";
+            const sajatJelszo = "itt_a_sajat_jelszavad"; // Írd át a jelszavadra!
+            // ------------------------
+
+            if (usernameInput === sajatFelhasznalo && passwordInput === sajatJelszo) {
+                localStorage.setItem('seelmta_user', usernameInput);
+                window.location.href = 'dashboard.html';
+            } else {
+                alert('Hibás felhasználónév vagy jelszó!');
+            }
         }
     </script>
 
