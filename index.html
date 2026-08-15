@@ -19,6 +19,52 @@
             align-items: center;
             height: 100vh;
         }
+
+        /* Felső sáv (Fejléc) */
+        .top-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            box-sizing: border-box;
+        }
+
+        /* Bal felső logó és név */
+        .top-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .top-left img {
+            width: 35px;
+            height: auto;
+        }
+        .top-left span {
+            color: #ff3333;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* Jobb felső Vissza gomb */
+        .top-right a {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background 0.3s;
+            border: 1px solid #444;
+        }
+        .top-right a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Bejelentkező kártya */
         .login-card {
             background-color: rgba(18, 18, 18, 0.85);
             padding: 40px;
@@ -78,6 +124,19 @@
 </head>
 <body>
 
+    <!-- Felső sáv -->
+    <div class="top-bar">
+        <div class="top-left">
+            <img src="logo.png" alt="Logo">
+            <span>SEELMTA</span>
+        </div>
+        <div class="top-right">
+            <!-- Itt állítsd be a főoldalad linkjét (pl. index.html vagy fofoldal.html) -->
+            <a href="index.html">Vissza fő oldalra</a>
+        </div>
+    </div>
+
+    <!-- Bejelentkező doboz -->
     <div class="login-card">
         <div class="logo-container">
             <img src="logo.png" alt="SEELMTA Logo">
@@ -105,7 +164,7 @@
             const passwordInput = document.getElementById('password').value;
 
             try {
-                // Ide majd beírjuk a szervered/PHP szkripted címét, ami lekérdezi az adatbázist az 5000 játékosnak:
+                // Ide jön majd a szerver oldali PHP ellenőrzés az 5000 játékos számára:
                 /* 
                 const response = await fetch('https://a-szerverem.hu/api/login.php', {
                     method: 'POST',
@@ -122,8 +181,7 @@
                 }
                 */
 
-                // Jelenlegi állapot: jelzi, hogy a rendszer készen áll a backend csatlakoztatására
-                alert('A rendszer készen áll a backend csatlakoztatására! (Még nincs szerver oldal az adatbázishoz).');
+                alert('A rendszer készen áll a backend csatlakoztatására!');
 
             } catch (error) {
                 console.error('Hiba történt:', error);
