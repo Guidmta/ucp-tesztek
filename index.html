@@ -131,7 +131,6 @@
             <span>SEELMTA</span>
         </div>
         <div class="top-right">
-            <!-- Itt állítsd be a főoldalad linkjét (pl. index.html vagy fofoldal.html) -->
             <a href="index.html">Vissza fő oldalra</a>
         </div>
     </div>
@@ -157,38 +156,17 @@
     </div>
 
     <script>
-        async function handleLogin(event) {
+        function handleLogin(event) {
             event.preventDefault();
             
             const usernameInput = document.getElementById('username').value;
-            const passwordInput = document.getElementById('password').value;
 
-            try {
-                // Ide jön majd a szerver oldali PHP ellenőrzés az 5000 játékos számára:
-                /* 
-                const response = await fetch('https://a-szerverem.hu/api/login.php', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ username: usernameInput, password: passwordInput })
-                });
-                const data = await response.json();
+            // Elmentjük a felhasználónevet a LocalStorage-ba, hogy a dashboard.html ki tudja olvasni
+            localStorage.setItem('seelmta_user', usernameInput);
 
-                if (data.success) {
-                    localStorage.setItem('seelmta_user', usernameInput);
-                    window.location.href = 'dashboard.html';
-                } else {
-                    alert('Hibás felhasználónév vagy jelszó!');
-                }
-                */
-
-                alert('A rendszer készen áll a backend csatlakoztatására!');
-
-            } catch (error) {
-                console.error('Hiba történt:', error);
-                alert('Nem sikerült kapcsolódni a szerverhez!');
-            }
+            // Sikeres "bejelentkezés" után átirányítás a dashboardra
+            window.location.href = 'dashboard.html';
         }
     </script>
-
 </body>
 </html>
